@@ -1179,10 +1179,10 @@ document.addEventListener("DOMContentLoaded", () => {
       particleSize: 1.8,
       particleSpeed: 0.75,
       
-      mouseRadius: 2.50,
-      mouseAttraction: 4,
-      mouseSwirl: 1.35,
-      hoverStrength: 2.0,
+      mouseRadius: 0.50,
+      mouseAttraction: 1,
+      mouseSwirl: 0.35,
+      hoverStrength: 1.0,
       
       borderWidth: 3.2,
       strands: 5,
