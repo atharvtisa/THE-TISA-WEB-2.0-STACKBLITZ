@@ -1,0 +1,2355 @@
+
+/* ==========================================
+   THE TISA / PREMIUM SERVICES DESIGN
+   Editorial layout + Corner Waterfall
+========================================== */
+
+:root {
+  --bg: #0B0B10;
+  --surface: #171720;
+  --soft: #111118;
+  --text: #FFFFFF;
+  --muted: #A1A1AA;
+  --purple: #B197FF;
+  --line: rgba(255,255,255,.13);
+  --console: #15131D;
+  --console-line: rgba(196,181,253,.17);
+}
+
+html[data-theme="light"] {
+  --bg: #F8F9FC;
+  --surface: #FFFFFF;
+  --soft: #F0EDF6;
+  --text: #17151F;
+  --muted: #606477;
+  --purple: #7141DC;
+  --line: #E4E0EC;
+  --console: #FFFFFF;
+  --console-line: #DAD1E9;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: clip;
+}
+
+button, input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+.container {
+  width: min(1260px, calc(100% - 80px));
+  margin-inline: auto;
+}
+
+::selection {
+  background: #7C3AED;
+  color: white;
+}
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.site-header {
+  position: relative;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.navbar {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.brand-logo-surface,
+.footer-logo-surface {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  background: #16131F;
+  border: 1px solid rgba(167,139,250,.17);
+  border-radius: 10px;
+}
+
+.brand-logo {
+  display: block;
+  width: 145px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.footer-logo {
+  display: block;
+  width: 170px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 13px;
+  color: var(--muted);
+  transition: color .3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--purple);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.theme-toggle {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.nav-contact {
+  padding: 13px 19px;
+  background: #7C3AED;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background .3s ease, transform .3s ease;
+}
+
+.nav-contact:hover {
+  background: #6D28D9;
+  transform: translateY(-2px);
+}
+
+.menu-toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  padding: 9px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  margin: 5px 0;
+  background: var(--text);
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.services-hero {
+  position: relative;
+  min-height: 700px;
+  padding: 105px 0 80px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 80% 50%,
+      rgba(124,58,237,.09),
+      transparent 50%
+    );
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .17em;
+}
+
+.hero-meta span:last-child {
+  color: var(--muted);
+}
+
+.services-hero-title {
+  max-width: 1100px;
+  margin: 100px 0 65px;
+  font: 700 clamp(54px,7.2vw,110px)/1.04
+    "Space Grotesk",sans-serif;
+  letter-spacing: -.076em;
+}
+
+.services-hero-title > span {
+  display: block;
+}
+
+.services-hero-title em {
+  color: var(--purple);
+  font-style: normal;
+}
+
+.services-hero-bottom {
+  max-width: 1080px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.services-hero-bottom p {
+  max-width: 490px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.scroll-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.hero-bottom-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 90px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .14em;
+}
+
+.hero-decor {
+  position: absolute;
+  right: -60px;
+  bottom: -155px;
+  z-index: -1;
+  font-size: 430px;
+  color: rgba(124,58,237,.055);
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ==========================================
+   COMMON SECTION ELEMENTS
+========================================== */
+
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.section-top span:last-child {
+  color: var(--muted);
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .17em;
+}
+
+/* ==========================================
+   SERVICES DIRECTORY — TWO COLUMNS
+========================================== */
+
+.services-directory {
+  padding: 30px 0 155px;
+  scroll-margin-top: 30px;
+}
+
+.directory-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0,.78fr)
+    minmax(0,1.22fr);
+  gap: clamp(55px,7vw,115px);
+  align-items: start;
+  margin-top: 60px;
+}
+
+.directory-left,
+.directory-right {
+  min-width: 0;
+}
+
+.directory-left-inner {
+  position: sticky;
+  top: 36px;
+  padding-top: 85px;
+}
+
+.directory-heading {
+  margin: 25px 0 25px;
+  font: 700 clamp(56px,6vw,90px)/1.07
+    "Space Grotesk",sans-serif;
+  letter-spacing: -.075em;
+}
+
+.directory-heading > span {
+  display: block;
+  color: var(--purple);
+}
+
+.directory-description {
+  max-width: 400px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* ==========================================
+   LEFT — CAPABILITY PREVIEW
+========================================== */
+
+.capability-preview {
+  margin-top: 55px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.preview-header,
+.preview-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.preview-status {
+  color: var(--purple);
+}
+
+.preview-status i,
+.console-footer i {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--purple);
+  vertical-align: middle;
+  margin-right: 5px;
+  box-shadow: 0 0 10px rgba(124,58,237,.55);
+}
+
+.preview-body {
+  position: relative;
+  padding: 30px 0 25px;
+}
+
+.preview-symbol-wrap {
+  width: 130px;
+  height: 130px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  margin-bottom: 22px;
+}
+
+.preview-orbit {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(167,139,250,.3);
+  border-radius: 50%;
+  transform: rotateX(62deg) rotate(-25deg);
+}
+
+.preview-orbit::after {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border: 1px dashed rgba(167,139,250,.17);
+  border-radius: 50%;
+}
+
+.preview-symbol {
+  position: relative;
+  z-index: 2;
+  color: var(--purple);
+  font: 400 75px/1 "Space Grotesk",sans-serif;
+  text-shadow: 0 0 35px rgba(124,58,237,.17);
+  will-change: transform, opacity;
+}
+
+.preview-copy {
+  max-width: 370px;
+}
+
+.preview-number {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .15em;
+}
+
+.preview-copy h3 {
+  margin: 0 0 13px;
+  color: var(--text);
+  font: 600 clamp(25px,2.5vw,34px)/1.16
+    "Space Grotesk",sans-serif;
+  letter-spacing: -.05em;
+}
+
+.preview-copy p {
+  min-height: 44px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 0 0 16px;
+}
+
+.preview-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.preview-tags span {
+  font-size: 10px;
+  color: var(--purple);
+}
+
+.preview-tags span:not(:last-child)::after {
+  content: " /";
+  color: var(--muted);
+}
+
+.preview-footer {
+  padding-top: 22px;
+  margin-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.preview-footer span:last-child {
+  color: var(--purple);
+  font-size: 23px;
+}
+
+.directory-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.directory-counter strong {
+  font: 700 57px/1 "Space Grotesk",sans-serif;
+  color: var(--purple);
+  letter-spacing: -.07em;
+}
+
+.directory-counter > span {
+  color: var(--muted);
+  font-size: 21px;
+}
+
+.directory-counter small {
+  margin-left: 12px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .12em;
+}
+
+/* ==========================================
+   RIGHT — WEBGL WATERFALL
+========================================== */
+
+.directory-right {
+  position: relative;
+  isolation: isolate;
+  --beam-inset: 18px;
+  --beam-splash: 0;
+}
+
+/* Transparent stage above the card */
+
+.laser-stage {
+  position: relative;
+  height: 300px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.laser-top-meta {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  color: var(--muted);
+}
+
+/*
+  Canvas paints beam, top-edge splash and
+  right-edge waterfall.
+
+  Width follows directory-right.
+  Height extends into top portion of card.
+*/
+
+.waterfall-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 6;
+  display: block;
+  width: 100%;
+  height: 750px;
+  max-height: none;
+  pointer-events: none;
+  background: transparent;
+}
+
+/* Fallback for unsupported WebGL */
+
+.laser-fallback {
+  position: absolute;
+  right: 18px;
+  top: 15px;
+  bottom: -2px;
+  width: 12px;
+  opacity: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(167,139,250,.22),
+    #D8C5FF
+  );
+  filter: blur(4px);
+  transition: opacity .9s ease;
+}
+
+.directory-right.no-webgl.laser-started
+.laser-fallback {
+  opacity: .8;
+}
+
+/* ==========================================
+   SERVICE CONSOLE
+========================================== */
+
+.services-console {
+  position: relative;
+  z-index: 2;
+  background: var(--console);
+  border: 1px solid var(--console-line);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 65px rgba(0,0,0,.14),
+    0 -3px 24px rgba(124,58,237,.04);
+  transition:
+    box-shadow .5s ease,
+    border-color .5s ease;
+}
+
+.services-console.is-energized {
+  border-top-color: rgba(196,181,253,.65);
+  box-shadow:
+    0 20px 65px rgba(0,0,0,.15),
+    0 -6px 35px rgba(124,58,237,.14);
+}
+
+/* Don't duplicate laser with old pseudo-elements */
+
+.services-console::before {
+  display: none;
+}
+
+.console-header,
+.console-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 26px;
+  color: var(--muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.console-header {
+  border-bottom: 1px solid var(--console-line);
+}
+
+.console-header b {
+  color: var(--purple);
+}
+
+.console-footer {
+  border-top: 1px solid var(--console-line);
+}
+
+.console-footer span:first-child {
+  color: var(--purple);
+}
+
+.console-list {
+  padding: 0 26px;
+}
+
+.service-row {
+  position: relative;
+  border-bottom: 1px solid var(--console-line);
+  transition: background .38s cubic-bezier(.2,.8,.2,1);
+}
+
+.service-row:last-child {
+  border-bottom: 0;
+}
+
+.service-row:hover,
+.service-row.is-previewed {
+  background: rgba(124,58,237,.055);
+}
+
+.service-row::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background: #A78BFA;
+  transform: scaleY(.2);
+  opacity: 0;
+  transition:
+    transform .4s cubic-bezier(.2,.8,.2,1),
+    opacity .3s ease;
+}
+
+.service-row.is-previewed::before {
+  transform: scaleY(1);
+  opacity: 1;
+}
+
+.service-row h3 {
+  margin: 0;
+}
+
+.service-trigger {
+  display: grid;
+  grid-template-columns: 29px minmax(0,1fr) 25px;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 27px 0;
+  background: transparent;
+  color: var(--text);
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.service-number {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--purple);
+}
+
+.service-title {
+  font: 600 clamp(20px,2.25vw,31px)/1.2
+    "Space Grotesk",sans-serif;
+  letter-spacing: -.045em;
+  transition: color .3s ease;
+}
+
+.service-toggle {
+  color: var(--purple);
+  font-size: 25px;
+  text-align: center;
+}
+
+.service-row.active .service-title,
+.service-row.is-previewed .service-title {
+  color: var(--purple);
+}
+
+/* Smooth accordion */
+
+.service-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition:
+    grid-template-rows .45s cubic-bezier(.2,.8,.2,1);
+}
+
+.service-row.active .service-body {
+  grid-template-rows: 1fr;
+}
+
+.service-body-inner {
+  min-height: 0;
+  overflow: hidden;
+  padding-left: 42px;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+
+.service-row.active .service-body-inner {
+  opacity: 1;
+  padding-bottom: 28px;
+}
+
+.service-body-inner p {
+  max-width: 460px;
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.service-tags span {
+  padding: 7px 10px;
+  border: 1px solid var(--console-line);
+  border-radius: 30px;
+  color: var(--purple);
+  font-size: 10px;
+}
+
+.service-body-inner a {
+  color: var(--purple);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .09em;
+}
+
+.service-body-inner a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================
+   PROCESS — OPEN TIMELINE
+========================================== */
+
+.services-process {
+  padding: 120px 0 145px;
+  background: var(--soft);
+}
+
+.process-heading {
+  max-width: 940px;
+  margin: 50px 0 110px;
+  font: 700 clamp(45px,6vw,88px)/1.1
+    "Space Grotesk",sans-serif;
+  letter-spacing: -.07em;
+}
+
+.process-heading > span {
+  display: block;
+  color: var(--purple);
+}
+
+.process-layout {
+  display: grid;
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  gap: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.process-item {
+  padding-top: 25px;
+}
+
+.process-item > span {
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.process-item h3 {
+  margin: 50px 0 15px;
+  font: 600 clamp(30px,3vw,47px)/1.15
+    "Space Grotesk",sans-serif;
+  letter-spacing: -.06em;
+}
+
+.process-item p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* ==========================================
+   FINAL CTA
+========================================== */
+
+.services-cta {
+  padding: 135px 0 160px;
+}
+
+.cta-layout {
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  gap: 80px;
+  align-items: end;
+  margin-top: 50px;
+}
+
+.cta-layout h2 {
+  margin: 0;
+  font: 700 clamp(55px,7vw,105px)/1.05
+    "Space Grotesk",sans-serif;
+  letter-spacing: -.075em;
+}
+
+.cta-layout h2 > span {
+  display: block;
+  color: var(--purple);
+}
+
+.cta-right p {
+  margin: 0 0 32px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.cta-link {
+  display: inline-block;
+  padding-bottom: 12px;
+  color: var(--purple);
+  border-bottom: 1px solid currentColor;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.site-footer {
+  padding: 75px 0 25px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 55px;
+  padding-bottom: 85px;
+}
+
+.footer-brand p {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.footer-links strong {
+  margin-bottom: 11px;
+  font-size: 11px;
+  color: var(--text);
+  letter-spacing: .13em;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+  transition: color .3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--purple);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .12em;
+}
+
+/* ==========================================
+   TEXT REVEAL / VARIABLE PROXIMITY
+========================================== */
+
+.js-reveal {
+  opacity: 1;
+}
+
+.js-ready .js-reveal {
+  opacity: 0;
+  transform: translate3d(0,28px,0);
+  filter: blur(8px);
+  transition:
+    opacity .85s cubic-bezier(.2,.8,.2,1),
+    transform .85s cubic-bezier(.2,.8,.2,1),
+    filter .85s cubic-bezier(.2,.8,.2,1);
+}
+
+.js-ready .js-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+  filter: blur(0);
+}
+
+/* Each heading line is revealed individually */
+
+.proximity-line {
+  display: block;
+  opacity: 1;
+  transform: none;
+}
+
+.js-ready .proximity-line {
+  opacity: 0;
+  transform: translate3d(0,34px,0);
+  filter: blur(10px);
+  transition:
+    opacity 1s cubic-bezier(.2,.8,.2,1),
+    transform 1s cubic-bezier(.2,.8,.2,1),
+    filter 1s cubic-bezier(.2,.8,.2,1);
+}
+
+.js-ready .proximity-line.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+.vp-word {
+  display: inline-block !important;
+  white-space: nowrap !important;
+}
+
+.vp-letter {
+  display: inline-block !important;
+  white-space: pre !important;
+  font-family: "Roboto Flex","Space Grotesk",sans-serif;
+  font-variation-settings: "wght" 700;
+  transition: font-variation-settings .14s ease;
+}
+
+/* Magnetic link interaction */
+
+.magnetic-link {
+  will-change: transform;
+  transition: transform .25s ease;
+}
+
+/* ==========================================
+   LIGHT THEME
+========================================== */
+
+html[data-theme="light"] .services-console {
+  box-shadow:
+    0 18px 50px rgba(44,26,83,.09),
+    0 -4px 28px rgba(113,65,220,.04);
+}
+
+html[data-theme="light"] .services-console.is-energized {
+  border-top-color: #9876D9;
+}
+
+html[data-theme="light"] .service-row.is-previewed {
+  background: rgba(113,65,220,.055);
+}
+
+html[data-theme="light"] .preview-orbit {
+  border-color: rgba(113,65,220,.25);
+}
+
+html[data-theme="light"] .laser-fallback {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(113,65,220,.25),
+    #7141DC
+  );
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1024px) {
+  .directory-layout {
+    grid-template-columns: .85fr 1.15fr;
+    gap: 40px;
+  }
+
+  .directory-heading {
+    font-size: clamp(50px,6vw,72px);
+  }
+
+  .directory-left-inner {
+    padding-top: 65px;
+  }
+
+  .service-title {
+    font-size: clamp(19px,2.4vw,28px);
+  }
+
+  .laser-stage {
+    height: 265px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 760px) {
+  .container {
+    width: min(100% - 36px,1260px);
+  }
+
+  .navbar {
+    min-height: 74px;
+  }
+
+  .brand-logo {
+    width: 115px;
+    height: 33px;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 26px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-contact {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .services-hero {
+    min-height: auto;
+    padding: 80px 0 60px;
+  }
+
+  .hero-meta span:last-child {
+    display: none;
+  }
+
+  .services-hero-title {
+    margin: 70px 0 48px;
+    font-size: clamp(45px,10vw,73px);
+  }
+
+  .services-hero-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+  }
+
+  .hero-bottom-line {
+    margin-top: 70px;
+  }
+
+  .hero-decor {
+    font-size: 250px;
+    bottom: -85px;
+  }
+
+  .directory-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 40px;
+  }
+
+  .directory-left-inner {
+    position: static;
+    padding-top: 0;
+  }
+
+  .directory-heading {
+    font-size: clamp(49px,10vw,73px);
+  }
+
+  .capability-preview {
+    margin-top: 32px;
+  }
+
+  .preview-body {
+    display: grid;
+    grid-template-columns: 100px minmax(0,1fr);
+    gap: 18px;
+    align-items: center;
+  }
+
+  .preview-symbol-wrap {
+    width: 100px;
+    height: 100px;
+    margin: 0;
+  }
+
+  .preview-symbol {
+    font-size: 57px;
+  }
+
+  .preview-copy h3 {
+    font-size: 23px;
+  }
+
+  .preview-footer {
+    margin-top: 15px;
+  }
+
+  .directory-counter {
+    margin-top: 22px;
+  }
+
+  .directory-counter strong {
+    font-size: 42px;
+  }
+
+  .laser-stage {
+    height: 220px;
+  }
+
+  .waterfall-canvas {
+    height: 590px;
+  }
+
+  .console-list {
+    padding: 0 18px;
+  }
+
+  .console-header,
+  .console-footer {
+    padding: 18px;
+    font-size: 8px;
+  }
+
+  .service-row::before {
+    left: -18px;
+  }
+
+  .service-trigger {
+    grid-template-columns: 25px minmax(0,1fr) 21px;
+    gap: 8px;
+    padding: 23px 0;
+  }
+
+  .service-title {
+    font-size: clamp(19px,5vw,26px);
+  }
+
+  .service-body-inner {
+    padding-left: 33px;
+  }
+
+  .process-layout {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  .process-heading {
+    margin-bottom: 65px;
+  }
+
+  .cta-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .services-cta {
+    padding: 95px 0;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 40px;
+  }
+
+  .footer-brand {
+    grid-column: 1/-1;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-hero-title {
+    font-size: 43px;
+  }
+
+  .laser-top-meta span:last-child,
+  .console-header span:last-child,
+  .console-footer span:last-child {
+    display: none;
+  }
+
+  .preview-body {
+    grid-template-columns: 75px minmax(0,1fr);
+    gap: 12px;
+  }
+
+  .preview-symbol-wrap {
+    width: 75px;
+    height: 75px;
+  }
+
+  .preview-symbol {
+    font-size: 44px;
+  }
+
+  .preview-copy h3 {
+    font-size: 21px;
+  }
+
+  .process-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .process-item h3 {
+    margin-top: 22px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY + REDUCED MOTION
+========================================== */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js-ready .js-reveal,
+  .js-ready .proximity-line {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .vp-letter,
+  .magnetic-link,
+  .service-body,
+  .service-row,
+  .preview-symbol {
+    transition: font-variation-settings .24s ease;
+  }
+}
+
+
+
+
+/* ==========================================
+   BROAD LASER — CONSOLE IMPACT GLOW
+========================================== */
+
+.directory-right {
+  overflow: visible;
+}
+
+.waterfall-canvas {
+  pointer-events: none;
+  filter:
+    brightness(1.25)
+    saturate(1.25);
+}
+
+.services-console.is-energized {
+  border-top-color: rgba(216, 195, 255, 0.9);
+
+  box-shadow:
+    0 20px 65px rgba(0, 0, 0, 0.15),
+    0 -10px 55px rgba(124, 58, 237, 0.28),
+    15px 0 65px rgba(124, 58, 237, 0.12);
+}
+
+html[data-theme="light"] .waterfall-canvas {
+  filter:
+    brightness(1.05)
+    saturate(1.4);
+}
+
+
+
+
+
+/* ==============================================
+   THE TISA SERVICES
+   RESPONSIVE LAYOUT + WATERFALL LASER
+   Paste at END of services.css
+============================================== */
+
+.services-page {
+  width: 100%;
+  min-width: 0;
+}
+
+.services-page main {
+  width: 100%;
+  min-width: 0;
+}
+
+.services-page .container {
+  width: min(1260px, calc(100% - 64px));
+  margin-inline: auto;
+}
+
+.services-page :is(
+  .directory-layout,
+  .directory-left,
+  .directory-right,
+  .directory-left-inner,
+  .services-console,
+  .service-row
+) {
+  min-width: 0;
+}
+
+/* Keep laser outside the card clipping area */
+
+.services-page .directory-right {
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.services-page .laser-stage {
+  position: relative;
+  height: 330px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/*
+  Extra transparent drawing space allows
+  the broad flare to spread past the corner.
+*/
+
+.services-page .waterfall-canvas {
+  position: absolute;
+  top: 0;
+  left: -35px;
+
+  width: calc(100% + 100px);
+  height: 780px;
+
+  z-index: 6;
+  display: block;
+
+  max-width: none;
+  max-height: none;
+
+  overflow: visible;
+  pointer-events: none;
+  background: transparent;
+
+  filter: none;
+}
+
+/* Console remains fully clickable */
+
+.services-page .services-console {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Give the illuminated corner more depth */
+
+.services-page .services-console.is-energized {
+  border-top-color: rgba(196,181,253,.72);
+  box-shadow:
+    0 18px 60px rgba(0,0,0,.14),
+    0 -8px 45px rgba(124,58,237,.16),
+    12px 0 42px rgba(124,58,237,.11);
+}
+
+/* Typography never escapes containers */
+
+.services-page :is(
+  .services-hero-title,
+  .directory-heading,
+  .process-heading,
+  .cta-layout h2
+) {
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+.services-page .service-title,
+.services-page .preview-copy h3 {
+  overflow-wrap: break-word;
+}
+
+/* Main page grid */
+
+.services-page .directory-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, .80fr)
+    minmax(0, 1.20fr);
+  align-items: start;
+  gap: clamp(35px, 5vw, 85px);
+}
+
+/* Sticky content on wider desktops */
+
+@media (min-width: 1025px) {
+  .services-page .directory-left-inner {
+    position: sticky;
+    top: 28px;
+  }
+}
+
+/* ==============================================
+   LAPTOP / SMALL DESKTOP
+============================================== */
+
+@media (max-width: 1199px) {
+  .services-page .container {
+    width: min(100% - 56px, 1260px);
+  }
+
+  .services-page .directory-layout {
+    grid-template-columns:
+      minmax(0, .78fr)
+      minmax(0, 1.22fr);
+    gap: 34px;
+  }
+
+  .services-page .directory-heading {
+    font-size: clamp(48px,5.5vw,74px);
+  }
+
+  .services-page .services-hero-title {
+    font-size: clamp(55px,7vw,90px);
+  }
+
+  .services-page .laser-stage {
+    height: 295px;
+  }
+
+  .services-page .waterfall-canvas {
+    height: 720px;
+  }
+
+  .services-page .service-title {
+    font-size: clamp(19px,2.3vw,29px);
+  }
+
+  .services-page .cta-layout {
+    gap: 45px;
+  }
+}
+
+/* ==============================================
+   TABLET
+============================================== */
+
+@media (max-width: 900px) {
+  .services-page .container {
+    width: min(100% - 44px, 1260px);
+  }
+
+  .services-page .navbar {
+    gap: 14px;
+  }
+
+  .services-page .nav-links {
+    gap: 20px;
+  }
+
+  .services-page .directory-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .services-page .directory-left-inner {
+    position: static;
+    padding-top: 0;
+  }
+
+  .services-page .directory-heading {
+    font-size: clamp(52px,8vw,78px);
+  }
+
+  .services-page .directory-description {
+    max-width: 600px;
+  }
+
+  .services-page .capability-preview {
+    max-width: 680px;
+    margin-top: 35px;
+  }
+
+  .services-page .preview-body {
+    display: grid;
+    grid-template-columns: 120px minmax(0,1fr);
+    align-items: center;
+    gap: 25px;
+  }
+
+  .services-page .preview-symbol-wrap {
+    width: 115px;
+    height: 115px;
+    margin: 0;
+  }
+
+  .services-page .directory-counter {
+    margin-top: 25px;
+  }
+
+  .services-page .laser-stage {
+    height: 300px;
+  }
+
+  .services-page .waterfall-canvas {
+    height: 760px;
+  }
+
+  .services-page .process-layout {
+    grid-template-columns:
+      repeat(2, minmax(0,1fr));
+    gap: 28px;
+  }
+
+  .services-page .cta-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .services-page .footer-grid {
+    grid-template-columns:
+      1.3fr 1fr 1fr;
+    gap: 25px;
+  }
+}
+
+/* ==============================================
+   MOBILE
+============================================== */
+
+@media (max-width: 760px) {
+  .services-page .container {
+    width: calc(100% - 36px);
+  }
+
+  /* Navigation */
+
+  .services-page .navbar {
+    min-height: 74px;
+  }
+
+  .services-page .nav-links {
+    display: none;
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 25px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .services-page .nav-links.open {
+    display: flex;
+  }
+
+  .services-page .menu-toggle {
+    display: block;
+  }
+
+  .services-page .nav-contact {
+    display: none;
+  }
+
+  .services-page .brand-logo {
+    max-width: 120px;
+    height: auto;
+  }
+
+  /* Hero */
+
+  .services-page .services-hero {
+    min-height: auto;
+    padding: 85px 0 65px;
+  }
+
+  .services-page .services-hero-title {
+    font-size: clamp(42px,9.5vw,70px);
+    line-height: 1.09;
+    letter-spacing: -.06em;
+    margin: 55px 0 35px;
+  }
+
+  .services-page .services-hero-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .services-page .services-hero-bottom p {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .services-page .hero-bottom-line {
+    margin-top: 60px;
+  }
+
+  .services-page .hero-decor {
+    font-size: 245px;
+    right: -50px;
+    bottom: -80px;
+  }
+
+  /* Directory */
+
+  .services-page .services-directory {
+    padding: 35px 0 95px;
+  }
+
+  .services-page .directory-layout {
+    grid-template-columns: minmax(0,1fr);
+    margin-top: 36px;
+    gap: 26px;
+  }
+
+  .services-page .directory-heading {
+    font-size: clamp(49px,10vw,72px);
+  }
+
+  .services-page .directory-description {
+    font-size: 14px;
+  }
+
+  .services-page .capability-preview {
+    margin-top: 30px;
+  }
+
+  .services-page .preview-body {
+    grid-template-columns:
+      95px minmax(0,1fr);
+    gap: 17px;
+  }
+
+  .services-page .preview-symbol-wrap {
+    width: 95px;
+    height: 95px;
+  }
+
+  .services-page .preview-symbol {
+    font-size: 54px;
+  }
+
+  .services-page .preview-copy h3 {
+    font-size: clamp(21px,5vw,27px);
+  }
+
+  .services-page .preview-copy p {
+    font-size: 12px;
+  }
+
+  .services-page .directory-counter strong {
+    font-size: 44px;
+  }
+
+  /* Taller beam area so downward
+     movement remains clearly visible */
+
+  .services-page .laser-stage {
+    height: 270px;
+  }
+
+  .services-page .waterfall-canvas {
+    top: 0;
+    left: -18px;
+    width: calc(100% + 54px);
+    height: 665px;
+  }
+
+  .services-page .console-header,
+  .services-page .console-footer {
+    padding: 17px 18px;
+  }
+
+  .services-page .console-list {
+    padding-inline: 18px;
+  }
+
+  .services-page .service-trigger {
+    grid-template-columns:
+      25px minmax(0,1fr) 20px;
+    gap: 9px;
+    padding: 22px 0;
+  }
+
+  .services-page .service-title {
+    font-size: clamp(19px,5vw,26px);
+    line-height: 1.25;
+  }
+
+  .services-page .service-body-inner {
+    padding-left: 34px;
+  }
+
+  .services-page .service-body-inner p {
+    font-size: 12px;
+  }
+
+  .services-page .service-row::before {
+    left: -18px;
+  }
+
+  /* Process */
+
+  .services-page .services-process {
+    padding: 85px 0 95px;
+  }
+
+  .services-page .process-heading {
+    font-size: clamp(40px,8vw,64px);
+    margin-bottom: 60px;
+  }
+
+  .services-page .process-layout {
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+    gap: 25px;
+  }
+
+  .services-page .process-item h3 {
+    margin-top: 30px;
+  }
+
+  /* CTA */
+
+  .services-page .services-cta {
+    padding: 90px 0;
+  }
+
+  .services-page .cta-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .services-page .cta-layout h2 {
+    font-size: clamp(43px,9vw,70px);
+  }
+
+  /* Footer */
+
+  .services-page .footer-grid {
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
+    gap: 36px;
+  }
+
+  .services-page .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ==============================================
+   SMALL MOBILE
+============================================== */
+
+@media (max-width: 480px) {
+  .services-page .container {
+    width: calc(100% - 30px);
+  }
+
+  .services-page .services-hero-title {
+    font-size: clamp(38px,10.5vw,49px);
+  }
+
+  .services-page .hero-meta span:last-child,
+  .services-page .section-top span:last-child,
+  .services-page .laser-top-meta span:last-child,
+  .services-page .console-header span:last-child,
+  .services-page .console-footer span:last-child {
+    display: none;
+  }
+
+  .services-page .preview-body {
+    grid-template-columns:
+      72px minmax(0,1fr);
+    gap: 13px;
+  }
+
+  .services-page .preview-symbol-wrap {
+    width: 72px;
+    height: 72px;
+  }
+
+  .services-page .preview-symbol {
+    font-size: 43px;
+  }
+
+  .services-page .preview-copy h3 {
+    font-size: 20px;
+  }
+
+  .services-page .preview-tags {
+    gap: 5px;
+  }
+
+  .services-page .laser-stage {
+    height: 245px;
+  }
+
+  .services-page .waterfall-canvas {
+    left: -12px;
+    width: calc(100% + 38px);
+    height: 625px;
+  }
+
+  .services-page .process-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .services-page .process-item h3 {
+    margin-top: 20px;
+  }
+
+  .services-page .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .services-page .footer-bottom {
+    flex-direction: column;
+  }
+}
+
+/* ==============================================
+   EXTRA SMALL MOBILE
+============================================== */
+
+@media (max-width: 360px) {
+  .services-page .services-hero-title {
+    font-size: 36px;
+  }
+
+  .services-page .service-title {
+    font-size: 18px;
+  }
+
+  .services-page .preview-body {
+    grid-template-columns: 1fr;
+  }
+
+  .services-page .laser-stage {
+    height: 220px;
+  }
+
+  .services-page .waterfall-canvas {
+    height: 570px;
+  }
+}
+
+/* Light mode */
+
+html[data-theme="light"]
+.services-page .waterfall-canvas {
+  filter: saturate(1.15);
+}
+
+html[data-theme="light"]
+.services-page .services-console.is-energized {
+  border-top-color: #8F6CD1;
+  box-shadow:
+    0 18px 50px rgba(44,26,83,.1),
+    0 -8px 35px rgba(113,65,220,.12);
+}
+
+
+
+/* ==========================================
+   THE TISA SERVICES — FINAL REFINEMENTS
+   Sticky Navbar + Full Height Waterfall
+   Dark / Light Theme + Responsive
+========================================== */
+
+/* 01 — STICKY NAVBAR */
+
+.services-page .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  background: rgba(11, 11, 16, 0.94);
+
+  border-bottom: 1px solid
+    rgba(196,181,253,.12);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  box-shadow: 0 4px 22px
+    rgba(0,0,0,.08);
+}
+
+/* Light theme sticky navbar */
+
+html[data-theme="light"]
+.services-page .site-header {
+  background: rgba(248,249,252,.94);
+
+  border-bottom-color: #E4E0EC;
+
+  box-shadow: 0 4px 22px
+    rgba(37,24,74,.045);
+}
+
+/* Ensure internal section navigation
+   isn't hidden behind navbar */
+
+.services-page
+:is(#capabilities, #process, #services-top) {
+  scroll-margin-top: 105px;
+}
+
+/* 02 — WATERFALL CANVAS */
+
+.services-page .directory-right {
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+}
+
+.services-page .waterfall-canvas {
+  position: absolute;
+  top: 0;
+
+  /* Extra drawing space around card */
+  left: -32px;
+  width: calc(100% + 92px);
+
+  /*
+    Height is now set dynamically
+    by services.js.
+  */
+
+  height: 100%;
+  max-height: none;
+  max-width: none;
+
+  z-index: 6;
+
+  display: block;
+  background: transparent;
+
+  pointer-events: none;
+
+  filter: brightness(1.12) saturate(1.12);
+}
+
+/* 03 — CONSOLE EDGE LIGHT */
+
+.services-page .services-console {
+  position: relative;
+  z-index: 2;
+}
+
+.services-page .services-console.is-energized {
+  border-top-color: rgba(216,195,255,.85);
+
+  box-shadow:
+    0 18px 60px rgba(0,0,0,.15),
+    0 -10px 44px rgba(124,58,237,.17),
+    8px 0 40px rgba(124,58,237,.12);
+}
+
+/* 04 — SUBTLE HEADING HOVER */
+
+.services-page .vp-letter {
+  font-variation-settings: "wght" 700;
+  transition: font-variation-settings .24s ease;
+}
+
+/* 05 — LIGHT THEME LASER */
+
+html[data-theme="light"]
+.services-page .waterfall-canvas {
+  filter: brightness(1.13) saturate(1.28);
+}
+
+html[data-theme="light"]
+.services-page .laser-stage {
+  background: radial-gradient(
+    ellipse at 85% 100%,
+    rgba(113,65,220,.075),
+    transparent 62%
+  );
+}
+
+html[data-theme="light"]
+.services-page .services-console {
+  border-color: #D9CFEA;
+  background: #FFFFFF;
+}
+
+html[data-theme="light"]
+.services-page .services-console.is-energized {
+  border-top-color: #8C64D4;
+
+  box-shadow:
+    0 18px 45px rgba(44,26,83,.09),
+    0 -8px 38px rgba(113,65,220,.15),
+    9px 0 32px rgba(113,65,220,.08);
+}
+
+html[data-theme="light"]
+.services-page .preview-symbol {
+  color: #7141DC;
+  text-shadow:
+    0 0 20px rgba(113,65,220,.15);
+}
+
+html[data-theme="light"]
+.services-page .service-row.is-previewed {
+  background: rgba(113,65,220,.055);
+}
+
+/* 06 — LAPTOP */
+
+@media (max-width: 1200px) {
+  .services-page .directory-layout {
+    gap: 36px;
+  }
+
+  .services-page .waterfall-canvas {
+    left: -26px;
+    width: calc(100% + 76px);
+  }
+}
+
+/* 07 — TABLET */
+
+@media (max-width: 900px) {
+  .services-page .directory-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .services-page .directory-left-inner {
+    position: static;
+  }
+
+  .services-page .waterfall-canvas {
+    left: -22px;
+    width: calc(100% + 66px);
+  }
+}
+
+/* 08 — MOBILE */
+
+@media (max-width: 760px) {
+  .services-page .site-header {
+    top: 0;
+  }
+
+  .services-page .navbar {
+    min-height: 74px;
+  }
+
+  .services-page .nav-links {
+    top: 74px;
+  }
+
+  .services-page .laser-stage {
+    height: 270px;
+  }
+
+  .services-page .waterfall-canvas {
+    left: -14px;
+    width: calc(100% + 46px);
+  }
+
+  .services-page .service-title {
+    overflow-wrap: break-word;
+  }
+
+  .services-page .services-console {
+    border-radius: 13px;
+  }
+
+  .services-page .service-body-inner {
+    padding-bottom: 0;
+  }
+
+  .services-page .service-row.active
+  .service-body-inner {
+    padding-bottom: 24px;
+  }
+}
+
+/* 09 — SMALL MOBILE */
+
+@media (max-width: 480px) {
+  .services-page .laser-stage {
+    height: 240px;
+  }
+
+  .services-page .waterfall-canvas {
+    left: -10px;
+    width: calc(100% + 35px);
+  }
+
+  .services-page .service-trigger {
+    gap: 8px;
+  }
+
+  .services-page .preview-copy h3 {
+    font-size: 20px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .services-page .vp-letter {
+    transition: none !important;
+  }
+}
+
+
+
+
+/* ==========================================
+   SERVICES HERO — LIGHTER TYPOGRAPHY
+========================================== */
+
+.services-page .services-hero-title {
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+
+.services-page .services-hero-title em {
+  font-weight: 500;
+}
+
+/* Variable Proximity letters */
+
+.services-page .services-hero-title .vp-letter {
+  font-weight: 500;
+  font-variation-settings: "wght" 500 !important;
+}
+
+
+
+/* ==========================================
+   THE TISA — SERVICES TYPOGRAPHY REFINEMENT
+   Lighter, Minimal & Premium Headings
+   SERVICES PAGE ONLY
+========================================== */
+
+/* 01 — HERO HEADING */
+
+.services-page .services-hero-title {
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.08;
+}
+
+.services-page .services-hero-title em {
+  font-weight: 500;
+}
+
+/* 02 — WHAT WE BUILD */
+
+.services-page .directory-heading {
+  font-weight: 500;
+  letter-spacing: -0.055em;
+}
+
+/* 03 — SERVICE LIST HEADINGS */
+
+.services-page .service-title {
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+/* 04 — CAPABILITY PREVIEW HEADING */
+
+.services-page .preview-copy h3 {
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+/* 05 — ENGINEERING PROCESS HEADING */
+
+.services-page .process-heading {
+  font-weight: 500;
+  letter-spacing: -0.055em;
+}
+
+/* 06 — PROCESS STEP HEADINGS */
+
+.services-page .process-item h3 {
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
+
+/* 07 — FINAL CTA HEADING */
+
+.services-page .cta-layout h2 {
+  font-weight: 500;
+  letter-spacing: -0.055em;
+}
+
+/* 08 — VARIABLE PROXIMITY LETTERS
+
+   Initial weight matches new typography.
+   JavaScript controls hover weight.
+*/
+
+.services-page .vp-letter {
+  font-weight: 500;
+  font-variation-settings: "wght" 500;
+  transition: font-variation-settings .25s ease;
+}
+
+/* Preserve typography contrast */
+
+.services-page :is(
+  .services-hero-title,
+  .directory-heading,
+  .process-heading,
+  .cta-layout h2
+) {
+  color: var(--text);
+}
+
+/* Keep purple accent text */
+
+.services-page .services-hero-title em,
+.services-page .directory-heading > span,
+.services-page .process-heading > span,
+.services-page .cta-layout h2 > span {
+  color: var(--purple);
+}
